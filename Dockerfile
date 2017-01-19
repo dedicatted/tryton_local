@@ -24,11 +24,11 @@ COPY trytond /home/app/trytond
 WORKDIR /home/app/trytond
 RUN /root/venv/bin/python /home/app/trytond/setup.py install
 
-COPY modules.txt /home/app/
+COPY tryton_local/modules.txt /home/app/
 RUN /root/venv/bin/pip install -r /home/app/modules.txt
 
-COPY trytond.conf /home/app
-COPY tryton_db.sqlite /home/app
+COPY tryton_local/trytond.conf /home/app
+COPY tryton_local/tryton_db.sqlite /home/app
 
 COPY sao /home/app/sao
 WORKDIR /home/app/sao
